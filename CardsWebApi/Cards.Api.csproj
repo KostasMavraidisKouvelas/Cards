@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CardsWeb.Models\CardsWeb.Models.csproj" />
+    <ProjectReference Include="..\CardsWeb.Models\Cards.Models.csproj" />
   </ItemGroup>
 
 </Project>
