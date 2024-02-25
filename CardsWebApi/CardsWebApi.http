@@ -1,0 +1,6 @@
+@CardsWebApi_HostAddress = http://localhost:5179
+
+GET {{CardsWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
