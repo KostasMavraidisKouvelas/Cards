@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CardsWeb.DataAccess;
+using CardsWeb.Models.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cards.Application
 {
@@ -18,6 +20,10 @@ namespace Cards.Application
             _context = dbContext;
         }
 
+        public T GetById<T>(Guid Id) where T : BaseModel
+        {
+            return _context.Set<T>().FirstOrDefault(c=>c.Id==Id);
+        }
         public IQueryable GetList<T>() where T : class
         {
             return _context.Set<T>();

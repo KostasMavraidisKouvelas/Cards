@@ -1,10 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.InteropServices;
 using CardsWeb.Models.Base;
 using CardsWeb.Models.Enums;
 
-namespace CardsWeb.Models
+namespace Cards.Models
 {
     public class Card : BaseModel
     {
