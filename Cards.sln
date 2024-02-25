@@ -3,16 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cards.Api", "CardsWebApi\Cards.Api.csproj", "{0679CE84-D365-4A88-93E2-0D6D661615D6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cards.DataAccess", "CardsWeb.DataAccess\Cards.DataAccess.csproj", "{B354EA9B-5133-4F7A-87C0-2CF6B6F6F474}"
-	ProjectSection(ProjectDependencies) = postProject
-		{99DC9A8D-D7EE-4991-A6EA-A0AA88E274DD} = {99DC9A8D-D7EE-4991-A6EA-A0AA88E274DD}
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cards.Models", "CardsWeb.Models\Cards.Models.csproj", "{99DC9A8D-D7EE-4991-A6EA-A0AA88E274DD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cards.Application", "Cards.Application\Cards.Application.csproj", "{DA13B6FA-F1D8-4D06-A9A8-829F6C6BF310}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cards.Api", "Cards.Api\Cards.Api.csproj", "{77D41F2F-B3B4-4D6C-923D-C6A0E94D7D01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cards.DataAccess", "Cards.DataAccess\Cards.DataAccess.csproj", "{BF182447-A5C9-48B8-AE48-9288B3325D24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cards.Models", "Cards.Models\Cards.Models.csproj", "{137FC482-D64F-4792-9761-37CBD8BB3FAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,22 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0679CE84-D365-4A88-93E2-0D6D661615D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0679CE84-D365-4A88-93E2-0D6D661615D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0679CE84-D365-4A88-93E2-0D6D661615D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0679CE84-D365-4A88-93E2-0D6D661615D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B354EA9B-5133-4F7A-87C0-2CF6B6F6F474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B354EA9B-5133-4F7A-87C0-2CF6B6F6F474}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B354EA9B-5133-4F7A-87C0-2CF6B6F6F474}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B354EA9B-5133-4F7A-87C0-2CF6B6F6F474}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99DC9A8D-D7EE-4991-A6EA-A0AA88E274DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99DC9A8D-D7EE-4991-A6EA-A0AA88E274DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99DC9A8D-D7EE-4991-A6EA-A0AA88E274DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99DC9A8D-D7EE-4991-A6EA-A0AA88E274DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA13B6FA-F1D8-4D06-A9A8-829F6C6BF310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA13B6FA-F1D8-4D06-A9A8-829F6C6BF310}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA13B6FA-F1D8-4D06-A9A8-829F6C6BF310}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA13B6FA-F1D8-4D06-A9A8-829F6C6BF310}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77D41F2F-B3B4-4D6C-923D-C6A0E94D7D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D41F2F-B3B4-4D6C-923D-C6A0E94D7D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D41F2F-B3B4-4D6C-923D-C6A0E94D7D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D41F2F-B3B4-4D6C-923D-C6A0E94D7D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF182447-A5C9-48B8-AE48-9288B3325D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF182447-A5C9-48B8-AE48-9288B3325D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF182447-A5C9-48B8-AE48-9288B3325D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF182447-A5C9-48B8-AE48-9288B3325D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{137FC482-D64F-4792-9761-37CBD8BB3FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137FC482-D64F-4792-9761-37CBD8BB3FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137FC482-D64F-4792-9761-37CBD8BB3FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137FC482-D64F-4792-9761-37CBD8BB3FAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿using CardsWeb.Models;
+﻿
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +10,7 @@ namespace CardsWeb.Api.Controllers
     {
         public async Task<IActionResult> GetById()
         {
-            return Ok(new Card());
+            return Ok();
         }
     }
 }
