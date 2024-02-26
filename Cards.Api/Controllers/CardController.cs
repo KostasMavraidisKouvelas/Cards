@@ -1,5 +1,6 @@
 ﻿
 using Cards.Application;
+using Cards.Application.Filters;
 using Cards.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,13 +8,19 @@ using Microsoft.AspNetCore.Mvc;
 namespace CardsWeb.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CardController : Controller
     {
         private readonly CardService _cardService;
+        [HttpGet]
         public async Task<IActionResult> GetById()
         {
             return Ok();
+        }
+        [HttpGet("userId")]
+        public async Task<IActionResult> GetCards([FromRoute]Guid userId, [FromQuery] CardFilter cardFilter)
+        {
+            return Ok(_cardService.GetByUserId(userId,cardFilter));
         }
 
         [HttpPost]
@@ -43,7 +50,7 @@ namespace CardsWeb.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("{itemId}")]
+        [Route("{cardId}")]
         public async Task<IActionResult> DeleteAuction([FromRoute] Guid cardId)
         {
             try

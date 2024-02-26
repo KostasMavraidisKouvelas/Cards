@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Cards.Application.Filters;
 using Cards.Models;
 
 namespace Cards.Application
@@ -26,10 +27,17 @@ namespace Cards.Application
 
         public async Task<Card> UpdateCard(Card card)
         {
-            var itemTocheck = _context.Cards.FirstOrDefault(c => c.Id == card.Id);
+            var itemToCheck = await _context.Cards.FindAsync(card.Id);
 
-            _context.Entry(card).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            if (itemToCheck != null)
+            {
+                _context.Entry(itemToCheck).CurrentValues.SetValues(card);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception("The card you tried to update does not exist");
+            }
 
             return card;
         }
@@ -37,15 +45,26 @@ namespace Cards.Application
 
         public async Task DeleteCard(Guid cardId)
         {
-
             var item = _context.Cards.FirstOrDefault(x => x.Id == cardId);
+
             if (item != null)
+            {
                 _context.Entry(item).State = EntityState.Deleted;
+            }
             else
-                throw new Exception("The item you tried to delete does not appear to exist");
+            {
+                throw new ArgumentException("The card you tried to delete does not exist", nameof(cardId));
+            }
 
             await _context.SaveChangesAsync();
+        }
 
+        public IQueryable<Card> GetByUserId(Guid userId,CardFilter options)
+        {
+            return _context.Set<Card>()
+                    .FilterCardBy(options.CardFilterBy,options.FilterValue)
+                    .OrderCardsBy(options.OrderByOptions)
+                    .Paginate<Card>(options.PageSize,options.PageNum);
         }
     }
 }
