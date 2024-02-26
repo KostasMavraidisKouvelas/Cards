@@ -1,5 +1,4 @@
-﻿using CardsWeb.DataAccess;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Cards.Application.Filters;
+using Cards.DataAccess;
 using Cards.Models;
 
 namespace Cards.Application

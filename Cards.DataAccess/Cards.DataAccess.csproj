@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cards.Models\Cards.Models.csproj" />
-    <ProjectReference Include="..\CardsWeb.Models\Cards.Models.csproj" />
+
   </ItemGroup>
 
 </Project>

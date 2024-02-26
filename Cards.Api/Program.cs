@@ -2,7 +2,7 @@ using System.Text;
 using Cards.Api;
 using Cards.Application;
 using Cards.Models;
-using CardsWeb.DataAccess;
+using Cards.DataAccess;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
