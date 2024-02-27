@@ -51,12 +51,29 @@ namespace CardsWeb.Api.Controllers
 
         [HttpDelete]
         [Route("{cardId}")]
-        public async Task<IActionResult> DeleteAuction([FromRoute] Guid cardId)
+        public async Task<IActionResult> DeleteCard([FromRoute] Guid cardId)
         {
             try
             {
                 await _cardService.DeleteCard(cardId);
                 return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return Conflict(e.Message);
+            }
+        }
+
+        [Authorize(Policy = "Admin")]
+        [HttpGet]
+        [Route("{cardId}")]
+        public async Task<IActionResult> GetAllCards()
+        {
+            try
+            {
+           
+              return Ok(_cardService.GetList<Card>());
             }
             catch (Exception e)
             {

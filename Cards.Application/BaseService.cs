@@ -24,9 +24,9 @@ namespace Cards.Application
         {
             return _context.Set<T>().FirstOrDefault(c=>c.Id==Id);
         }
-        public IQueryable GetList<T>() where T : class
+        public IQueryable<T> GetList<T>() where T : class
         {
-            return _context.Set<T>();
+            return  _context.Set<T>();
         }
     }
 }

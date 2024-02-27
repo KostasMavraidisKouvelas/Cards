@@ -65,7 +65,7 @@ builder.Services.AddAuthentication(options =>
     });
 
 builder.Services.AddAuthorization(options =>
-        options.AddPolicy("GetAllCards", policy => policy.RequireClaim("Admin")));
+        options.AddPolicy("Role", policy => policy.RequireClaim("Admin")));
 
 builder.Services.AddIdentityCore<User>(options =>
     {
