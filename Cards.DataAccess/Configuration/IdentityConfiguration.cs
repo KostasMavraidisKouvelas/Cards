@@ -52,14 +52,14 @@ namespace Cards.DataAccess.Configuration
         }
     }
 
-    public class UserClaimConfiguration : IEntityTypeConfiguration<UserClaim>
+    public class UserClaimConfiguration : IEntityTypeConfiguration<IdentityUserClaim<Guid>>
     {
-        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<UserClaim> builder)
+        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<IdentityUserClaim<Guid>> builder)
         {
             builder.HasData(
-                new UserClaim
+                new IdentityUserClaim<Guid>
                 {
-                    Id = Guid.NewGuid(),
+                    Id = 1,
                     UserId = Guid.Parse("41d819ed-0b13-4cc8-9b3c-fab3b977a004"),
                     ClaimType = "Admin",
                     ClaimValue = "true"

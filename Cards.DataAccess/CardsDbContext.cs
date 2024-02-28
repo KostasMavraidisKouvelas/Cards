@@ -23,7 +23,6 @@ namespace Cards.DataAccess
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserClaim> UserClaims { get; set; }
         public virtual DbSet<Card> Cards { get; set; }
     }
 }

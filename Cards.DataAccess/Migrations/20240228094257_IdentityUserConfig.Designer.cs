@@ -4,6 +4,7 @@ using Cards.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cards.DataAccess.Migrations
 {
     [DbContext(typeof(CardsDbContext))]
-    partial class CardsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240228094257_IdentityUserConfig")]
+    partial class IdentityUserConfig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,6 +191,11 @@ namespace Cards.DataAccess.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(34)
+                        .HasColumnType("nvarchar(34)");
+
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -197,14 +205,9 @@ namespace Cards.DataAccess.Migrations
 
                     b.ToTable("AspNetUserClaims", (string)null);
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ClaimType = "Admin",
-                            ClaimValue = "true",
-                            UserId = new Guid("41d819ed-0b13-4cc8-9b3c-fab3b977a004")
-                        });
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUserClaim<Guid>");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
@@ -288,7 +291,7 @@ namespace Cards.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bdbcc8ad-5a04-406f-9c46-fa3f0b3d273e"),
+                            Id = new Guid("d6d005b6-1878-4a4e-8ff0-f0c9e013c5ad"),
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "d7e...",
                             Email = "user@example.com",
@@ -303,6 +306,13 @@ namespace Cards.DataAccess.Migrations
                             TwoFactorEnabled = false,
                             UserName = "user@example.com"
                         });
+                });
+
+            modelBuilder.Entity("Cards.Models.UserClaim", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>");
+
+                    b.HasDiscriminator().HasValue("UserClaim");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
