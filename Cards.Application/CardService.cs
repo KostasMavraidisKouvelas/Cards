@@ -61,7 +61,7 @@ namespace Cards.Application
 
         public IQueryable<Card> GetByUserId(Guid userId,CardFilter options)
         {
-            return _context.Set<Card>()
+            return _context.Set<Card>().AsNoTracking()
                     .FilterCardBy(options.CardFilterBy,options.FilterValue)
                     .OrderCardsBy(options.OrderByOptions)
                     .Paginate<Card>(options.PageSize,options.PageNum);
