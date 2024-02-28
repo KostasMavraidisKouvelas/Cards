@@ -9,18 +9,19 @@ namespace CardsWeb.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class CardController : Controller
     {
         private readonly CardService _cardService;
         [HttpGet]
-        public async Task<IActionResult> GetById()
+        public async Task<IActionResult> GetById(Guid Id)
         {
-            return Ok();
+            return Ok(_cardService.GetById<Card>(Id));
         }
         [HttpGet("userId")]
-        public async Task<IActionResult> GetCards([FromRoute]Guid userId, [FromQuery] CardFilter cardFilter)
+        public async Task<IActionResult> GetCards([FromRoute] Guid userId, [FromQuery] CardFilter cardFilter)
         {
-            return Ok(_cardService.GetByUserId(userId,cardFilter));
+            return Ok(_cardService.GetByUserId(userId, cardFilter));
         }
 
         [HttpPost]
@@ -72,8 +73,8 @@ namespace CardsWeb.Api.Controllers
         {
             try
             {
-           
-              return Ok(_cardService.GetList<Card>());
+
+                return Ok(_cardService.GetList<Card>());
             }
             catch (Exception e)
             {

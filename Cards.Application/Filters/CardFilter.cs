@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Cards.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cards.Models;
 
 namespace Cards.Application.Filters
 {
@@ -55,16 +50,16 @@ namespace Cards.Application.Filters
             this IQueryable<Card> cards,
             CardFilterBy filterBy, string filterValue)
         {
-            if (string.IsNullOrEmpty(filterValue)) 
-                return cards; 
+            if (string.IsNullOrEmpty(filterValue))
+                return cards;
 
             switch (filterBy)
             {
-                case CardFilterBy.NoFilter:                       
-                    return cards;                                  
+                case CardFilterBy.NoFilter:
+                    return cards;
                 case CardFilterBy.ByColor: //
-                    return cards.Where(x =>                        
-                        x.Color == filterValue);       
+                    return cards.Where(x =>
+                        x.Color == filterValue);
                 case CardFilterBy.ByName:
                     return cards.Where(x => filterValue.Contains(x.Name));
                 default:

@@ -22,11 +22,11 @@ namespace Cards.Application
 
         public T GetById<T>(Guid Id) where T : BaseModel
         {
-            return _context.Set<T>().FirstOrDefault(c=>c.Id==Id);
+            return _context.Set<T>().AsNoTracking().FirstOrDefault(c=>c.Id==Id);
         }
         public IQueryable<T> GetList<T>() where T : class
         {
-            return  _context.Set<T>();
+            return  _context.Set<T>().AsNoTracking();
         }
     }
 }

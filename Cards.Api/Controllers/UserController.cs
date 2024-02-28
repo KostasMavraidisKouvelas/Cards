@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Cards.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cards.Api.Controllers
 {
@@ -20,6 +21,7 @@ namespace Cards.Api.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [Route("Login")]
         public async Task<IActionResult> Login(UserLoginDto user)
         {
